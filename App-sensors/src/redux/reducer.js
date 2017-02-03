@@ -4,7 +4,7 @@ import connect_mqtt from '../MQTT/mqtt';
 function counterReducer(state = 0, action) {
   switch (action.type) {
   case 'CONNECTER':
-    connect_mqtt();
+    connect_mqtt(action.lien);
     return state
   case 'DECREMENT':
     return state - 1

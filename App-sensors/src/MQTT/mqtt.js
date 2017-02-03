@@ -1,7 +1,8 @@
 var mqtt = require('mqtt')
+var client;
 
-const connect_mqtt = () => {
-  var client  = mqtt.connect('ws://localhost:8080')
+const connect_mqtt = (lien) => {
+  client  = mqtt.connect(lien)
 
   client.on('connect', function () {
     client.subscribe('#')
@@ -14,3 +15,5 @@ const connect_mqtt = () => {
 }
 
 export default connect_mqtt ;
+
+//'ws://localhost:8080'

@@ -3,39 +3,61 @@ import { connecter } from '../redux/action';
 
 import {connect} from 'react-redux';
 
-/*class Barre extends Component{
+const l= 'ws://localhost:8080';
+
+class Barre extends Component{
+  construct() {
+    this.setState(
+      {
+        string:''
+      }
+    );
+  }
   render(){
     return (
       <div className="Barre" >
-        <input  type="text" name="lien" />
+        <input
+          type="text"
+          name="lien"
+          onChange={
+           (event) => {
+             this.setState({
+               string: event.target.value
+             })
+           }
+         }
+        />
         <button
-          name="connect">CONNECT
-          onClick={ () => {this.props.seConnecter()} }
+          name="connect"
+          onClick={ () => { this.props.seConnecter(this.state.string) } }
+        >
+          CONNECT
         </button>
       </div>
     );
   }
-}*/
+}
 
-const Barre = ( { seConnecter} ) => (
+/*const Barre = ( { seConnecter} ) => (
   <div className="Barre" >
     <input  type="text" name="lien" />
     <button
       name="connect"
-      onClick={ () => { seConnecter() } }
+      onClick={ () => { seConnecter(l) } }
     >
       CONNECT
     </button>
   </div>
-);
+);*/
 
+//relier les actions avec le store
 const stateToProps = (state) => {
   return {};
 }
 
 const dispatchToProps = (dispatch) => {
   return {
-    seConnecter: () => { dispatch(connecter); }
+    seConnecter: (lien) => { dispatch(connecter(lien)); }
   };
 }
 
