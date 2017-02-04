@@ -1,7 +1,9 @@
 import { List } from 'immutable'
 import connect_mqtt from '../MQTT/mqtt';
 
-function counterReducer(state = 0, action) {
+const etatInitiale = {};
+
+function counterReducer(state = etatInitiale, action) {
   switch (action.type) {
   case 'CONNECTER':
     connect_mqtt(action.lien);

@@ -19,6 +19,7 @@ class Barre extends Component{
         <input
           type="text"
           name="lien"
+          value="ex: ws://lochlost:8080"
           onChange={
            (event) => {
              this.setState({
