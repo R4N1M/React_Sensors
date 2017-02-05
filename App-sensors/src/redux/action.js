@@ -4,3 +4,16 @@ export const connecter = (mqtt) => {
     lien: mqtt
   }
 };
+
+export const ajouter = (sensor) => {
+  return{
+    type: 'AJOUTER',
+    objet: sensor
+  }
+}
+
+export const mettre_à_jour = () => {
+  return{
+    type: 'METTREÀJOUR'
+  }
+}

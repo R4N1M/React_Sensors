@@ -3,13 +3,13 @@ import { connecter } from '../redux/action';
 
 import {connect} from 'react-redux';
 
-const l= 'ws://localhost:8080';
+const l = 'ws://localhost:8080';
 
 class Barre extends Component{
   construct() {
     this.setState(
       {
-        string:''
+        string:'ws://localhost:8080'
       }
     );
   }
@@ -19,7 +19,6 @@ class Barre extends Component{
         <input
           type="text"
           name="lien"
-          value="ex: ws://lochlost:8080"
           onChange={
            (event) => {
              this.setState({
@@ -35,6 +34,7 @@ class Barre extends Component{
           CONNECT
         </button>
       </div>
+
     );
   }
 }
@@ -58,7 +58,9 @@ const stateToProps = (state) => {
 
 const dispatchToProps = (dispatch) => {
   return {
-    seConnecter: (lien) => { dispatch(connecter(lien)); }
+    seConnecter: (lien) => {
+                          dispatch(connecter(lien));
+                          }
   };
 }
 
